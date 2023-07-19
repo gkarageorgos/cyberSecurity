@@ -1,5 +1,4 @@
 from base64 import b64decode
-from Crypto.Util.number import long_to_bytes, bytes_to_long
 from cryptography.hazmat.primitives import serialization
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
@@ -37,9 +36,3 @@ cipher_text = b64decode(cipher_b64)
 cipher = PKCS1_v1_5.new(priv_key)
 decrypt_text = cipher.decrypt(cipher_text, None).decode("UTF-8")
 print(decrypt_text)
-
-# # Convert the decoded bytes to an integer
-# encrypted_msg = bytes_to_long(cipher_text)
-#
-# decrypted_msg = pow(encrypted_msg, d, n)
-# print(long_to_bytes(decrypted_msg))
